@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  dind:
+    #build: .
+    image: ghcr.io/lizenzfass78851/docker-dind:latest
+    container_name: dind
+    privileged: true
+    stdin_open: true
+    tty: true
+#    ports:
+#      - "8080:8080" # Example-Port for a Web-Server
+    volumes:
+      - data:/var/lib/docker # Persistend Data for Docker
+      - workspace:/workspace # Workspace for the Container
+volumes:
+  data:
+  workspace:
