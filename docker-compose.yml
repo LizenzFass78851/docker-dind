@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+#      target: alpine-bash-issue # comment out to build with defaults
     image: ghcr.io/lizenzfass78851/docker-dind:latest
     container_name: dind
     privileged: true

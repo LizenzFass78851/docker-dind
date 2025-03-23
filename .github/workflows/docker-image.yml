@@ -2,9 +2,11 @@ name: Build and Publish Docker Image
 
 on:
   push:
-    branches: [ "master", "alpine-bash-issue" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "master", "alpine-bash-issue" ]
+    branches: [ "master" ]
+  schedule:
+    - cron: '10 14 */3 * 2'
   workflow_dispatch:
 
 concurrency:
@@ -19,6 +21,15 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: master
+            latest: true
+          - target: alpine-bash-issue
+            latest: false
 
     permissions:
       contents: read
@@ -48,13 +59,15 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           flavor: |
-            latest=${{ github.ref_name == 'master' }}
+            latest=${{ matrix.latest }}
+          tags: ${{ matrix.target }}
 
       - name: Build and push main Docker image
         id: build
         uses: docker/build-push-action@v7
         with:
           build-args: GH_TOKEN=${{ github.token }}
+          target: ${{ matrix.target != github.ref_name && matrix.target || '' }}
           context: .
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
