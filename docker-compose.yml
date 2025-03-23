@@ -10,6 +10,8 @@ services:
     privileged: true
     stdin_open: true
     tty: true
+#    environment:
+#      - ADDITIONAL_PACKAGES=git,curl # example: Packages separated by commas
 #    ports:
 #      - "8080:8080" # Example-Port for a Web-Server
     volumes:

@@ -9,6 +9,12 @@ else
   echo "dockerd is running."
 fi
 
+# Install additional packages if specified
+if [ -n "$ADDITIONAL_PACKAGES" ]; then
+  echo "Installing additional packages: $ADDITIONAL_PACKAGES"
+  apk add --no-cache $(echo $ADDITIONAL_PACKAGES | tr ',' ' ')
+fi
+
 # By some strange reason we need to do echo command to get to the next command
 echo " "
 
