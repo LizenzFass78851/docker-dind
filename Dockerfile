@@ -1,4 +1,4 @@
-FROM docker:18.09.6
+FROM docker:28.0.4
 
 LABEL maintainer="Alexander Litvinenko <array.shift@yahoo.com>"
 
