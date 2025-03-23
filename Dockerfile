@@ -12,6 +12,6 @@ COPY scripts .
 
 RUN apk add --no-cache iptables bash
 
-WORKDIR ${APP_WORKSPACE_PATH}}
+WORKDIR ${APP_WORKSPACE_PATH}
 
 ENTRYPOINT [ "/opt/dind/start.sh" ]
