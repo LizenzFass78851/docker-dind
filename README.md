@@ -6,6 +6,11 @@ Docker in Docker. The working solution
 | Image | Tag | Build | Latest |
 |:------------------:|:--------------:|:-----------------:|:-----------------:|
 | ghcr.io/lizenzfass78851/docker-dind | master | [![Build and Publish Docker Image](https://github.com/LizenzFass78851/docker-dind/actions/workflows/docker-image.yml/badge.svg?branch=master)](https://github.com/LizenzFass78851/docker-dind/actions/workflows/docker-image.yml) | 📌 |
+| ghcr.io/lizenzfass78851/docker-dind | alpine-bash-issue | [![Build and Publish Docker Image](https://github.com/LizenzFass78851/docker-dind/actions/workflows/docker-image.yml/badge.svg?branch=alpine-bash-issue)](https://github.com/LizenzFass78851/docker-dind/actions/workflows/docker-image.yml) |  |
+
+- Matrix Build State
+
+[![Build and Publish Docker Image](https://github.com/LizenzFass78851/docker-dind/actions/workflows/docker-image-matrix.yml/badge.svg)](https://github.com/LizenzFass78851/docker-dind/actions/workflows/docker-image-matrix.yml)
 
 ### GitHub repo:
 https://github.com/LizenzFass78851/docker-dind
