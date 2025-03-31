@@ -1,4 +1,4 @@
-FROM docker:28.0.4
+FROM docker:28.0-dind
 
 LABEL maintainer="Alexander Litvinenko <array.shift@yahoo.com>"
 
@@ -10,12 +10,7 @@ WORKDIR ${APP_INSTALL_PATH}
 
 COPY scripts .
 
-RUN apk add --no-cache iptables bash
-
-RUN DOCKER_VERSION=$(docker --version | awk '{print $3}' | sed 's/,//')
-RUN wget https://github.com/moby/moby/raw/refs/tags/v${DOCKER_VERSION}/hack/dind \
-    -O /usr/local/bin/dind && \
-    chmod +x /usr/local/bin/dind
+RUN apk add --no-cache bash
 
 WORKDIR ${APP_WORKSPACE_PATH}
 
