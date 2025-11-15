@@ -1,4 +1,4 @@
-FROM docker:28.5-dind
+FROM docker:29.0-dind
 
 LABEL maintainer="Alexander Litvinenko <array.shift@yahoo.com>"
 
