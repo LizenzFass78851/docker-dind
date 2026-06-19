@@ -67,7 +67,7 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           build-args: GH_TOKEN=${{ github.token }}
-          target: ${{ matrix.target != github.ref_name && matrix.target || '' }}
+          target: ${{ matrix.target != ('master' || 'main') && matrix.target || '' }}
           context: .
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
